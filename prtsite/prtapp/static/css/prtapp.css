@@ -1,0 +1,16 @@
+body {
+     background-color: #f8f8f8;
+     border-top: 5px solid #7e7e7e;
+     color: #8f8f8f;
+     font: 12px Tahoma,sans-serif;
+     margin: 0px;
+}
+
+#wrapper {
+     margin: auto;
+     max-width: 960px;
+}
+
+header {
+     padding: 20px 0px;
+}

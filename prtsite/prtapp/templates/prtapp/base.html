@@ -2,6 +2,20 @@
 <html>
     <head>
         <title>Корни деревьев, стеганография в фото и видео</title>
-
+        <link rel="stylesheet" href="{% static 'css/prtapp.css' %}">
     </head>
+
+    <body>
+        <div id="wrapper">
+            <header>
+                <a href="/"><img src="{% static 'images/image658.png' %}" alt="Main logo"></a>
+            </header>
+            <nav></nav>
+            <section>
+                {% block content %}
+                {% endblock %}
+            </section>
+        </div>
+        <footer></footer>
+    </body>
 </html>
