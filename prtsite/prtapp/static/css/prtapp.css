@@ -1,3 +1,8 @@
+* {
+     margin: 0px;
+     padding: 0px;
+}
+
 body {
      background-color: #f8f8f8;
      border-top: 5px solid #7e7e7e;
@@ -7,10 +12,24 @@ body {
 }
 
 #wrapper {
-     margin: auto;
-     max-width: 960px;
+     /*margin: auto;*/
+     /*max-width: 960px;*/
 }
 
-header {
+/*header {
      padding: 20px 0px;
+}*/
+header > a > img {
+     border-right: 2px solid #7e7e7e;
+     float: left;
+     margin: 0px 40px 0px 0px;
+}
+
+header blockquote {
+     font: 16px Tahoma;
+     max-width: 1000px;
+}
+
+header figcaption {
+    
 }
