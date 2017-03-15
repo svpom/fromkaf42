@@ -9,12 +9,23 @@
         <div id="wrapper">
             <header>
                 <a href="/"><img src="{% static 'images/logo.gif' %}" alt="Main logo"></a>
-                <figure>
                 <blockquote>В моральном плане математика учит нас строго относиться к тому, что утверждается как истина, что выдвигается как аргумент или высказывается как доказательство. Математика требует ясности понятий и утверждений, не терпит ни тумана, ни бездоказательных заявлений.</blockquote>
-                <figcaption>Александров А.Д.</figcaption>
-                </figure>
+                <cite>Александров А.Д.</cite>
             </header>
-            <nav></nav>
+            <nav>
+                <ul class="top-menu">
+                    <li><a href="/">Главная</a></li>
+                    <li>
+                        <a href="summary-about-trees-root">Найти корень дерева ⯆</a>
+                        <ul>
+                            <li><a href="cut-method">Метод отсечения</a></li>
+                            <li><a href="based-on-tops-height">Метод, основанный на понятии вершины</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="summary-about-stegano">Стеганография в фото- и видеофайлах ⯆</a></li>
+                    <li><a href="contacts">Контакты</a></li>
+                </ul>
+            </nav>
             <section>
                 {% block content %}
                 {% endblock %}

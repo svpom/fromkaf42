@@ -27,9 +27,81 @@ header > a > img {
 
 header blockquote {
      font: 16px Tahoma;
-     max-width: 1000px;
+     max-width: 1100px;
 }
 
-header figcaption {
-    
+header cite {
+     font: italic 20px Times;
+     left: 600px;
+     position: relative;
+     top: 20px;
+}
+
+header {
+
+}
+
+/*nav a {
+    text-decoration: none;
+}
+
+nav li {
+    list-style-position: inside;
+    font: 14px Tahoma;
+    padding: 10px;
+}
+
+.top-menu li {
+    display: inline-block;
+
+}*/
+
+nav {
+    clear: left;
+    float:left;
+    width: 100%;
+}
+
+nav li {
+    float: left;
+    display: block;
+    position: relative;
+}
+
+nav li a {
+    display: block;
+    background: #333;
+    text-decoration: none;
+}
+
+nav li a:hover {
+    background: #6b0c36;
+}
+
+.top-menu ul {
+    list-style: none;
+    position: absolute;
+    left: -9999px;
+    opacity:0;
+}
+
+.top-menu ul li{
+    float: none;
+}
+
+.top-menu ul a {
+    white-space: nowrap;
+}
+
+.top-menu li:hover ul{
+    left:0;
+    opacity:1;
+}
+
+.top-menu li:hover a{
+    background: #6b0c36;
+}
+
+.top-menu li:hover ul li a:hover {
+    background: #333;
 }
