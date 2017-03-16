@@ -26,15 +26,16 @@ header > a > img {
 }
 
 header blockquote {
-     font: 16px Tahoma;
+     /*font: 16px Tahoma;*/
+     font: 16px Oswald, sans-serif;
      max-width: 1100px;
 }
 
 header cite {
-     font: italic 20px Times;
+     font: italic 20px Oswald, sans-serif;
      left: 600px;
      position: relative;
-     top: 20px;
+     /*top: 20px;*/
 }
 
 header {
@@ -56,26 +57,31 @@ nav li {
 
 }*/
 
+
 nav {
     clear: left;
     float:left;
-    width: 100%;
+    font: 20px Oswald, sans-serif;
+    /*width: 100%;*/
 }
 
 nav li {
     float: left;
     display: block;
     position: relative;
+    width: 25vw;
 }
 
 nav li a {
     display: block;
-    background: #333;
+    background: #DCDCDC;
     text-decoration: none;
+    text-align: center;
+    padding: 10px 0px;
 }
 
 nav li a:hover {
-    background: #6b0c36;
+    /*background: #6b0c36;*/
 }
 
 .top-menu ul {
@@ -98,10 +104,27 @@ nav li a:hover {
     opacity:1;
 }
 
-.top-menu li:hover a{
-    background: #6b0c36;
+.top-menu li:hover > a{
+    /*background: #6b0c36;*/
+    background: #29c5e6;
 }
 
 .top-menu li:hover ul li a:hover {
-    background: #333;
+    /*background: #333;*/
+    background: #AFEEEE;
 }
+
+.top-menu a {
+    color: #696969;
+}
+
+/*nav li {
+    list-style-position: inside;
+    font: 14px Oswald, sans-serif;
+}
+
+.top-menu > li {
+    display:inline-block;
+    padding: 10px 30px;
+    margin: 0;
+}*/
