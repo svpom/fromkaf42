@@ -1,5 +1,5 @@
 * {
-     margin: 0px;
+     /*margin: 0px;*/
      padding: 0px;
 }
 
@@ -22,13 +22,15 @@ body {
 header > a > img {
      border-right: 2px solid #7e7e7e;
      float: left;
-     margin: 0px 40px 0px 0px;
+     /*margin: 0px 40px 0px 0px;*/
+     margin-right: 40px;
 }
 
 header blockquote {
      /*font: 16px Tahoma;*/
      font: 16px Oswald, sans-serif;
      max-width: 1100px;
+     margin:0;
 }
 
 header cite {
@@ -69,7 +71,7 @@ nav li {
     float: left;
     display: block;
     position: relative;
-    width: 25vw;
+    width: 24.7vw;
 }
 
 nav li a {
@@ -82,6 +84,9 @@ nav li a {
 
 nav li a:hover {
     /*background: #6b0c36;*/
+}
+.top-menu {
+    margin:0;
 }
 
 .top-menu ul {
@@ -128,3 +133,19 @@ nav li a:hover {
     padding: 10px 30px;
     margin: 0;
 }*/
+section {
+    /*clear:left;*/
+
+    margin-left: 11%;
+    margin-top: 40px;
+    width: 78%;
+    /*margin-right: 15%;*/
+    /*margin: 10px auto;*/
+    border: 1px solid #DCDCDC;
+    display:inline-block;
+    font: 16px Oswald,sans-serif;
+}
+section p{
+    margin:0;
+    padding:10px;
+}
