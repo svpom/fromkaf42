@@ -155,7 +155,7 @@ section h1{
     text-align: center;
 }
 
-#first_paragr{
+.first_paragr{
     padding-top:30px;
 }
 
@@ -175,3 +175,8 @@ footer {
     text-align:center;
     padding-top: 20px;
 }
+.img_ref{
+    text-align:center;
+    display:block;
+ }
+
