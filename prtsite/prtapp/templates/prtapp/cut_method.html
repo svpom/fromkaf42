@@ -1,6 +1,13 @@
 {% extends 'prtapp/base.html' %}
 {% load staticfiles %}
 
+
+{% block static_files %}
+<link rel="stylesheet" href="{% static 'css/cut_method.css' %}">
+<script src="{% static 'js/cut_method.js' %}"></script>
+{% endblock %}
+
+
 {% block content %}
 <h1>Описание алгоритма</h1>
 <ol>
@@ -14,11 +21,12 @@
 </ol>
 <h1>Применение метода отсечения</h1>
 <form>
-    <p>Количество вершин дерева: 
-        <input type="text" size="1" placeholder="3" class="little_box">
+    <p>Введите количество вершин дерева: 
+        <input type="text" size="1" placeholder="5" class="little_box" name="num_of_vertexes_box">
+        <input type="button" name="enter_num" value="Ввод">
     </p>
 </form>
-<p>Заполните 
+<p id="p_before_table">Заполните 
     <a target="_blank" class="less_style" 
     href="https://ru.wikipedia.org/wiki/%D0%9C%D0%B0%D1%82%D1%80%D0%B8%D1%86%D0%B0_%D1%81%D0%BC%D0%B5%D0%B6%D0%BD%D0%BE%D1%81%D1%82%D0%B8">
     матрицу смежности:

@@ -1,0 +1,23 @@
+section h1{
+    margin: 0;
+    text-align: center;
+}
+
+section ol{
+    margin:0;
+    padding:10px;
+    font: 20px PT Sans Narrow, Oswald,sans-serif ;
+}
+
+ol ul {
+    list-style: none;
+}
+
+.less_style {
+        text-decoration: none;
+}
+
+.little_box{
+text-align: center;
+}
+

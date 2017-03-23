@@ -123,34 +123,19 @@ nav li a:hover {
     color: #696969;
 }
 
-/*nav li {
-    list-style-position: inside;
-    font: 14px Oswald, sans-serif;
-}
-
-.top-menu > li {
-    display:inline-block;
-    padding: 10px 30px;
-    margin: 0;
-}*/
 section {
-    /*clear:left;*/
-
     margin-left: 11%;
     margin-top: 40px;
     width: 78%;
-    /*border: 1px solid #DCDCDC;*/
     display:inline-block;
-    /*font: 16px Oswald,sans-serif;*/
     font: bold 16px Open Sans Condensed, Oswald, sans-serif;
 }
-section p, ol{
+section p {
     margin:0;
     padding:10px;
-    /*padding-top: 30px;*/
     font: 20px PT Sans Narrow, Oswald,sans-serif ;
 }
-section h1{
+/*section h1{
     margin: 0;
     text-align: center;
 }
@@ -163,7 +148,7 @@ section h1{
     padding:10px;
     padding-left: 40px;
     margin:0;
-}
+}*/
 
 footer {
     background:#DCDCDC;
@@ -175,7 +160,7 @@ footer {
     text-align:center;
     padding-top: 20px;
 }
-.img_ref{
+/*.img_ref{
     text-align:center;
     display:block;
  }
@@ -190,8 +175,4 @@ ol ul {
 
 .little_box{
 text-align: center;
-}
-
-/*.little_box:active {
-
 }*/
