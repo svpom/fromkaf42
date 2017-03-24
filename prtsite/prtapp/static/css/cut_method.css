@@ -21,3 +21,6 @@ ol ul {
 text-align: center;
 }
 
+#p_before_table {
+    all:unset;
+}

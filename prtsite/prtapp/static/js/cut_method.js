@@ -3,7 +3,10 @@ var numOfVertexes = NUM_OF_VERTEXES_DEFAULT;
 
 window.onload = function(){
 
-    var vertexesNumInput = document.getElementsByName("num_of_vertexes_box");
+   doNewInputs(numOfVertexes);
+   //alert("azaza");
+   var vertexesNumInput = document.getElementsByName("num_of_vertexes_box");
+
 
 
     vertexesNumInput[0].onfocus = function() {
@@ -16,18 +19,45 @@ window.onload = function(){
         if (isNaN(this.value)) {
             //if input is not a number
         }
+        else {
+            document.getElementsByName("enter_num")[0].onclick = function() {
+            deletePrevInputs(numOfVertexes);
+            //changeWidthToOptimal(numOfVertexes);
+            doNewInputs(vertexesNumInput[0].value);
+            };
+            numOfVertexes = vertexesNumInput[0].value;
+        }
     };
 
 
-    var enterNum = document.getElementsByName("enter_num");
 
-    enterNum[0].onclick = function() {
-        //now we should take number from vertexesNumInput to server or ajax or another func to make table with empty cells
-        //= vertexesNumInput[0].placeholder;
-        /*var newInput = document.createElement('input');this code makes new input field after clicking on btn with id enter_num
-        newInput.type = "text";
-        newInput.size = 1;
+    //function declaration
+    function doNewInputs(num) {
+           // var vertexesNum = vertexesNumInput[0].value;
+        
+        for (var i = 0;i < num;i++) {
+            for (var j =0 ;j < num;j++) {
+            var newInput = document.createElement('input');//this code makes new input field after clicking on btn with id enter_num
+            newInput.type = "text";
+            newInput.size = 1;
+            newInput.className = "added_by_js";
+            //newInput.style.float="left";
+            document.getElementById("p_before_table").appendChild(newInput);
+            };
 
-        document.getElementById("p_before_table").appendChild(newInput);*/
-    }
+            var newBr = document.createElement('br');
+            document.getElementById("p_before_table").appendChild(newBr);
+            newBr.className = "added_by_js";
+        };
+    };
+
+
+    function deletePrevInputs(num) {
+
+        var elemsToDel = document.getElementsByClassName("added_by_js");
+        var len = elemsToDel.length;
+        for (var i=len-1;i >= 0;i--){//reverse loop. Because in usual loop len decreases and in some moment i becomes more than 
+            elemsToDel[i].parentNode.removeChild(elemsToDel[i]);//existed elements in collection. So error:index is out of range.
+        };
+    };
 };
