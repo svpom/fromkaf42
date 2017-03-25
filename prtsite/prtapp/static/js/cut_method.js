@@ -22,12 +22,14 @@ window.onload = function(){
             err_label.style.opacity = "1";
             err_label.style.color = "red";
             inputError = true;
+
         } else  if (this.value < MIN_NUM_OF_VERTEXES || this.value > MAX_NUM_OF_VERTEXES){
             var err_label = document.getElementById("err_label");
             err_label.innerHTML = "Ошибка. Введите число от 1 до 40.";
             err_label.style.opacity = "1";
             err_label.style.color = "red";
             inputError = true;
+
         } else {
             var err_label = document.getElementById("err_label");
             err_label.style.opacity = "0";
@@ -45,16 +47,67 @@ window.onload = function(){
     };
 
 
+
+    var csrftoken = getCookie('csrftoken');//to pass csrf token defense
+
+    $.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+      xhr.setRequestHeader("X-CSRFToken", csrftoken);
+    }
+    });
+
+
+
+
+
+
+
+
+    $("#ok_btn").click(function() {
+        alert("test");
+        var inputsValues = [];
+        var inpStr ="";
+        for (var i = 0; i < numOfVertexes * numOfVertexes; i++) {
+            //alert($(".txt_input").eq(i).val());
+            inputsValues.push($(".txt_input").eq(i).val());
+            alert(inputsValues);
+            inpStr += inputsValues[i] + ";";
+            alert(inpStr);
+
+        };
+
+        /*$.post("/xhr-test", {
+            name: "Berg",
+            food: "Code",
+            param: inputsValues[0]
+        },
+            function(data) {
+            alert(data);
+        });*/
+        $.ajax({//error. it does get request. and need safe param to be false
+            url: "/xhr-test",
+            //data: inputsValues,
+            data: { inp: inpStr },
+            method: "POST",
+            //dataType: "json",
+            success: function (data) {
+                alert(data);
+            }
+        });
+
+    });
+
+
     //function declaration
     function doNewInputs(num) {
            // var vertexesNum = vertexesNumInput[0].value;
         
         for (var i = 0;i < num;i++) {
-            for (var j =0 ;j < num;j++) {
+            for (var j = 0 ;j < num;j++) {
             var newInput = document.createElement('input');//this code makes new input field after clicking on btn with id enter_num
             newInput.type = "text";
             newInput.size = 1;
-            newInput.className = "added_by_js";
+            newInput.className = "added_by_js txt_input";
             //newInput.style.float="left";
             document.getElementById("p_before_table").appendChild(newInput);
             };
@@ -81,5 +134,19 @@ window.onload = function(){
             document.getElementById("p_before_table").style.width = 
             (+num + 1) * (document.getElementsByClassName("added_by_js")[0].offsetWidth) + "px";
         };// + 1 - to have some free space right
+    };
+    function getCookie(name) {//from django docs. It's to pass csrf token defense using AJAX
+    var cookieValue = null;
+    if (document.cookie && document.cookie != '') {
+      var cookies = document.cookie.split(';');
+      for (var i = 0; i < cookies.length; i++) {
+        var cookie = jQuery.trim(cookies[i]);
+        if (cookie.substring(0, name.length + 1) == (name + '=')) {
+          cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+          break;
+        };
+      };
+    };
+    return cookieValue;
     };
 };

@@ -27,3 +27,7 @@ text-align: center;
 #err_label {
     opacity:0;
 }
+#submit_btn{
+    /*width:50px;*/
+    margin-left:10px;
+}

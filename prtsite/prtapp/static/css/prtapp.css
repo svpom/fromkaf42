@@ -129,6 +129,7 @@ section {
     width: 78%;
     display:inline-block;
     font: bold 16px Open Sans Condensed, Oswald, sans-serif;
+    max-width:1300px;
 }
 section p {
     margin:0;
