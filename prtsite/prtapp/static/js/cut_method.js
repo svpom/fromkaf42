@@ -1,4 +1,4 @@
-var NUM_OF_VERTEXES_DEFAULT = 5;
+var NUM_OF_VERTEXES_DEFAULT = 5, MIN_NUM_OF_VERTEXES = 1, MAX_NUM_OF_VERTEXES = 41;//41 is not obligatorily
 var numOfVertexes = NUM_OF_VERTEXES_DEFAULT;
 
 window.onload = function(){
@@ -6,7 +6,7 @@ window.onload = function(){
    doNewInputs(numOfVertexes);
    //alert("azaza");
    var vertexesNumInput = document.getElementsByName("num_of_vertexes_box");
-
+   var inputError = false;
 
 
     vertexesNumInput[0].onfocus = function() {
@@ -16,19 +16,33 @@ window.onload = function(){
 
 
     vertexesNumInput[0].onblur = function() {
-        if (isNaN(this.value)) {
-            //if input is not a number
-        }
-        else {
-            document.getElementsByName("enter_num")[0].onclick = function() {
+        if (isNaN(this.value)) { //if input is not a number
+            var err_label = document.getElementById("err_label");
+            err_label.innerHTML = "Ошибка. Введите число, пожалуйста.";
+            err_label.style.opacity = "1";
+            err_label.style.color = "red";
+            inputError = true;
+        } else  if (this.value < MIN_NUM_OF_VERTEXES || this.value > MAX_NUM_OF_VERTEXES){
+            var err_label = document.getElementById("err_label");
+            err_label.innerHTML = "Ошибка. Введите число от 1 до 40.";
+            err_label.style.opacity = "1";
+            err_label.style.color = "red";
+            inputError = true;
+        } else {
+            var err_label = document.getElementById("err_label");
+            err_label.style.opacity = "0";
+            inputError = false;
+        };
+    };
+
+    document.getElementsByName("enter_num")[0].onclick = function() {
+        if (!inputError) {
             deletePrevInputs(numOfVertexes);
             doNewInputs(vertexesNumInput[0].value);
             changeWidthToOptimal(vertexesNumInput[0].value);
-            };
             numOfVertexes = vertexesNumInput[0].value;
-        }
+        };
     };
-
 
 
     //function declaration
@@ -60,6 +74,7 @@ window.onload = function(){
             elemsToDel[i].parentNode.removeChild(elemsToDel[i]);//existed elements in collection. So error:index is out of range.
         };
     };
+
 
     function changeWidthToOptimal(num) {
         if (document.getElementById("content").offsetWidth < num * document.getElementsByClassName("added_by_js")[0].offsetWidth) {

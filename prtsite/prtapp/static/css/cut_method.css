@@ -24,3 +24,6 @@ text-align: center;
 /*#p_before_table {
     all:unset;
 }*/
+#err_label {
+    opacity:0;
+}
