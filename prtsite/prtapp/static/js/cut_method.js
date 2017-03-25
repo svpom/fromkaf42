@@ -22,8 +22,8 @@ window.onload = function(){
         else {
             document.getElementsByName("enter_num")[0].onclick = function() {
             deletePrevInputs(numOfVertexes);
-            //changeWidthToOptimal(numOfVertexes);
             doNewInputs(vertexesNumInput[0].value);
+            changeWidthToOptimal(vertexesNumInput[0].value);
             };
             numOfVertexes = vertexesNumInput[0].value;
         }
@@ -59,5 +59,12 @@ window.onload = function(){
         for (var i=len-1;i >= 0;i--){//reverse loop. Because in usual loop len decreases and in some moment i becomes more than 
             elemsToDel[i].parentNode.removeChild(elemsToDel[i]);//existed elements in collection. So error:index is out of range.
         };
+    };
+
+    function changeWidthToOptimal(num) {
+        if (document.getElementById("content").offsetWidth < num * document.getElementsByClassName("added_by_js")[0].offsetWidth) {
+            document.getElementById("p_before_table").style.width = 
+            (+num + 1) * (document.getElementsByClassName("added_by_js")[0].offsetWidth) + "px";
+        };// + 1 - to have some free space right
     };
 };

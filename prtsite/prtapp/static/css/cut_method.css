@@ -17,10 +17,10 @@ ol ul {
         text-decoration: none;
 }
 
-.little_box{
+#little_input{
 text-align: center;
 }
 
-#p_before_table {
+/*#p_before_table {
     all:unset;
-}
+}*/
