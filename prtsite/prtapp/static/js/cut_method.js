@@ -63,7 +63,7 @@ window.onload = function(){
         };
 
         $.ajax({
-            url: "/xhr-test",
+            url: "/xhr",
             data: { inp: inpStr },
             method: "POST",
             success: function (data) {
@@ -136,7 +136,7 @@ window.onload = function(){
     function showNewRes(data) {
         var newP = document.createElement('p'); //to show result
         newP.id = "result"
-        if (typeof(+data) == "number") {
+        if (!isNaN(data)) {
             data = "Корнем является вершина номер " + data + ".";
         }
         var node = document.createTextNode(data);
