@@ -6,7 +6,8 @@
 body {
      background-color: #f8f8f8;
      border-top: 5px solid #7e7e7e;
-     color: #8f8f8f;
+     /*color: #8f8f8f;*/
+     color: #686868;
      font: 12px Tahoma,sans-serif;
      margin: 0px;
 }

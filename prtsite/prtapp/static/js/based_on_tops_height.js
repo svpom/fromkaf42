@@ -63,7 +63,7 @@ window.onload = function(){
         };
 
         $.ajax({
-            url: "/xhr-cut",
+            url: "/xhr-height",
             data: { inp: inpStr },
             method: "POST",
             success: function (data) {
