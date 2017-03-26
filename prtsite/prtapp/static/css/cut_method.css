@@ -21,9 +21,9 @@ ol ul {
 text-align: center;
 }
 
-/*#p_before_table {
-    all:unset;
-}*/
+#p_before_table {
+    margin: 0px auto;
+}
 #err_label {
     opacity:0;
 }

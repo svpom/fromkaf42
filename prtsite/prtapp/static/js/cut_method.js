@@ -4,13 +4,11 @@ var numOfVertexes = NUM_OF_VERTEXES_DEFAULT;
 window.onload = function(){
 
    doNewInputs(numOfVertexes);
-   //alert("azaza");
    var vertexesNumInput = document.getElementsByName("num_of_vertexes_box");
    var inputError = false;
 
 
     vertexesNumInput[0].onfocus = function() {
-        //delete info about YOU ENTERED NOT A NUMBER from previos func
         this.placeholder = "";
     };
 
@@ -47,7 +45,6 @@ window.onload = function(){
     };
 
 
-
     var csrftoken = getCookie('csrftoken');//to pass csrf token defense
 
     $.ajaxSetup({
@@ -57,58 +54,36 @@ window.onload = function(){
     });
 
 
-
-
-
-
-
-
     $("#ok_btn").click(function() {
-        alert("test");
         var inputsValues = [];
         var inpStr ="";
         for (var i = 0; i < numOfVertexes * numOfVertexes; i++) {
-            //alert($(".txt_input").eq(i).val());
             inputsValues.push($(".txt_input").eq(i).val());
-            alert(inputsValues);
             inpStr += inputsValues[i] + ";";
-            alert(inpStr);
-
         };
 
-        /*$.post("/xhr-test", {
-            name: "Berg",
-            food: "Code",
-            param: inputsValues[0]
-        },
-            function(data) {
-            alert(data);
-        });*/
-        $.ajax({//error. it does get request. and need safe param to be false
+        $.ajax({
             url: "/xhr-test",
-            //data: inputsValues,
             data: { inp: inpStr },
             method: "POST",
-            //dataType: "json",
             success: function (data) {
-                alert(data);
+                delPrevRes();
+                showNewRes(data);
             }
         });
-
     });
 
 
     //function declaration
     function doNewInputs(num) {
-           // var vertexesNum = vertexesNumInput[0].value;
         
         for (var i = 0;i < num;i++) {
             for (var j = 0 ;j < num;j++) {
+
             var newInput = document.createElement('input');//this code makes new input field after clicking on btn with id enter_num
             newInput.type = "text";
             newInput.size = 1;
             newInput.className = "added_by_js txt_input";
-            //newInput.style.float="left";
             document.getElementById("p_before_table").appendChild(newInput);
             };
 
@@ -135,6 +110,8 @@ window.onload = function(){
             (+num + 1) * (document.getElementsByClassName("added_by_js")[0].offsetWidth) + "px";
         };// + 1 - to have some free space right
     };
+
+
     function getCookie(name) {//from django docs. It's to pass csrf token defense using AJAX
     var cookieValue = null;
     if (document.cookie && document.cookie != '') {
@@ -148,5 +125,22 @@ window.onload = function(){
       };
     };
     return cookieValue;
+    };
+
+
+    function delPrevRes() {
+        prevRes = document.getElementById("result");
+        prevRes.parentNode.removeChild(prevRes);
+    };
+
+    function showNewRes(data) {
+        var newP = document.createElement('p'); //to show result
+        newP.id = "result"
+        if (typeof(+data) == "number") {
+            data = "Корнем является вершина номер " + data + ".";
+        }
+        var node = document.createTextNode(data);
+        newP.appendChild(node);
+        document.getElementById("p_before_table").appendChild(newP);
     };
 };

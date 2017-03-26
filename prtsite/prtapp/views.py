@@ -34,11 +34,8 @@ def get_root(request):
 
 def xhr_test(request):
     if request.is_ajax():
-        message = "Hello AJAX"
-    else:
-        message = "Hello"
-    if request.method == "POST":
-        # message = request.POST.get("inputsValues", "Error with key")
-        message = request.POST.get("inp", "Error. Try again.")
+        if request.method == "POST":
+            inp = request.POST.get("inp", "Error. Try again.")
+            root_number = trees_root.clip_met(inp[:-1])  # -1 is to delete last ;
 
-    return HttpResponse(message)
+    return HttpResponse(root_number)

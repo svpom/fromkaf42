@@ -1,12 +1,29 @@
 #!/usr/bin/python3
 import copy
 import sys
+import math
 
 
-def clip_met():
-    tmp_matr = copy.deepcopy(matrix)
+def clip_met(inp):
+
+    matrix = []
+    inp_arr = inp.split(";")  # from str to arr
+    size = round(math.sqrt(len(inp_arr)))
     tmp_size = size
     vert = []
+
+    try:
+        for i in range(0, size):  # making two-dimensional matrix from array
+            matrix.append([])  # martix = [[],[],...]
+            for j in range(0, size):
+                matrix[i].append(int(inp_arr[size * i + j]))
+                if matrix[i][j] != 0 and matrix[i][j] != 1:
+                    return "Ошибка. Элементы матрицы должны быть равны либо 0, либо 1."
+    except:
+        return "Ошибка. Введите корректные значения."
+
+
+    tmp_matr = copy.deepcopy(matrix)
 
     for i in range(0, size):  # array with vertex's number. [0,1,2,3,..,size-1]
         vert.append(i)
@@ -33,7 +50,8 @@ def clip_met():
         tmp_size = tmp_size - len(tmp_del_lst)  # change the size of the matrix until it become 1 or 2
 
     if tmp_size == 1:  # if we have got center
-        print('The root is the vertex number ', vert[0] + 1)
+        #print('The root is the vertex number ', vert[0] + 1)
+        return vert[0] + 1
 
     if tmp_size == 2:  # if we have got bi-roots
         x1 = vert[0]
@@ -74,12 +92,28 @@ def clip_met():
                 start.pop(0)
 
         if min(paths_x1) <= min(paths_x2):
-            print('The root is the vertex number ', vert[0] + 1)
+            #print('The root is the vertex number ', vert[0] + 1)
+            return vert[0] + 1
         else:
-            print('The root is the vertex number ', vert[1] + 1)
+            #print('The root is the vertex number ', vert[1] + 1)
+            return vert[1] + 1
 
 
-def height_met():
+def height_met(inp):
+    matrix = []
+    inp_arr = inp.split(";")  # from str to arr
+    size = round(math.sqrt(len(inp_arr)))
+
+    try:
+        for i in range(0, size):  # making two-dimensional matrix from array
+            matrix.append([])  # martix = [[],[],...]
+            for j in range(0, size):
+                matrix[i].append(int(inp_arr[size * i + j]))
+                if matrix[i][j] != 0 and matrix[i][j] != 1:
+                    return "Ошибка. Элементы матрицы должны быть равны либо 0, либо 1."
+    except:
+        return "Ошибка. Введите корректные значения."
+
     '''path = 0
     used_el = [x1, x2]
     start = [x2]'''
@@ -108,8 +142,8 @@ def height_met():
                                 start.append(z)
                     start.pop(0)
         paths.append(max(paths_i))
-    print("The root is the vertex number ", paths.index(min(paths)) + 1)
-
+    #print("The root is the vertex number ", paths.index(min(paths)) + 1)
+    return paths.index(min(paths)) + 1
 
 def main():
     while True:
