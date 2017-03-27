@@ -35,5 +35,10 @@ def xhr_height(request):
             root_number = trees_root.height_met(inp[:-1])  # -1 is to delete last ;
     return HttpResponse(root_number)
 
+
 def summary_about_stegano(request):
     return render(request, 'prtapp/summary_about_stegano.html', {})
+
+
+def stegano_in_images(request):
+    return render(request, 'prtapp/stegano_in_images.html', {})

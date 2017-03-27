@@ -10,4 +10,5 @@ urlpatterns = [
     url(r'^based-on-tops-height/$', views.based_on_tops_height, name='based_on_tops_height'),
     url(r'^xhr-height$', views.xhr_height, name='xhr_height'),
     url(r'^summary-about-stegano/$', views.summary_about_stegano, name='summary_about_stegano'),
+    url(r'^stegano-in-images/$', views.stegano_in_images, name='stegano_in_images'),
 ]
