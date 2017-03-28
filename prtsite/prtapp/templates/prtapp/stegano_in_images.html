@@ -19,4 +19,9 @@
 
 <h1>Применение метода</h1>
 
+<form method="POST" action="/upload-image/" enctype="multipart/form-data">
+{% csrf_token %}
+{{ form }}
+<button type="submit">Закодировать данные!</button>
+</form>
 {% endblock content %}

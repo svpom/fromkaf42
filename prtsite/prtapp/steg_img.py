@@ -1,6 +1,6 @@
 from PIL import Image
 
-def encode_mes(mes_user, img):
+def encode_mes(mes_user, img, files_name):
     offset = 0
     for ch in mes_user:
         b_ch = bin(ord(ch))
@@ -28,7 +28,7 @@ def encode_mes(mes_user, img):
                     part_coord+=2
                     offset += i#for each next iteration
             img.putpixel((x, y), (img.getpixel((x,y))[0], img.getpixel((x,y))[1], mod_blue))
-    img.save("encoded_image", "BMP")
+    img.save("prtapp/media/images/output/" + files_name, "BMP")
 
 def decode_mes(img, mes_len):
     offset = 0
