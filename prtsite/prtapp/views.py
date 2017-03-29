@@ -4,6 +4,8 @@ from django.http import HttpResponse
 from .forms import UploadImageForm
 from . import steg_img
 from PIL import Image
+import os
+import mimetypes
 
 # Create your views here.
 def main_page(request):
@@ -52,10 +54,21 @@ def upload_image(request):
         form = UploadImageForm(request.POST, request.FILES)
         if form.is_valid():
             f = request.FILES['img']
-            if f.size < 100000000:  # <100MB
+            if f.size < 20000000:  # <100MB
                 mes = "12234566"
                 encode_image(mes, f)  # mes is user's message
-                return render(request, 'prtapp/summary_about_stegano.html', {})
+                path_to_result = 'prtapp/media/images/output/' + f.name
+                fp = open(path_to_result, "rb")
+                response = HttpResponse(fp.read())
+                fp.close()
+                file_type = mimetypes.guess_type(path_to_result)
+                if file_type is None:
+                    file_type = 'application/octet-stream'
+                response['Content-Type'] = file_type
+                response['Content-Length'] = str(os.stat(path_to_result).st_size)
+                response['Content-Disposition'] = "attachment; filename='%s'" % f.name
+                return response
+               # return render(request, 'prtapp/download_result.html', {'url': url})
     else:
         form = UploadImageForm()
     return render(request, 'prtapp/stegano_in_images.html', {'form': form})
@@ -69,4 +82,3 @@ def encode_image(mes, f):
     dest.close()
 
     steg_img.encode_mes(mes, Image.open(path_to_encoded_image), f.name)
-    dest.close()
