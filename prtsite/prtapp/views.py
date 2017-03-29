@@ -74,6 +74,8 @@ def upload_image_to_encode(request):
                 response['Content-Type'] = file_type
                 response['Content-Length'] = str(os.stat(path_to_result).st_size)
                 response['Content-Disposition'] = "attachment; filename='%s'" % f.name
+                os.remove('prtapp/media/images/input/' + f.name)
+                os.remove(path_to_result)
                 return response
 
         form_to_encode = UploadImageToEncodeForm()
@@ -109,6 +111,7 @@ def upload_image_to_decode(request):
             if f.size < 20000000:  # <20MB
                 mes_len = request.POST['mes_len']
                 dec_mes = decode_image(mes_len, f)  # dec - decoded
+                os.remove('prtapp/media/images/input/' + f.name)
 
                 return HttpResponse("Закодированное сообщение: " + dec_mes)
 
