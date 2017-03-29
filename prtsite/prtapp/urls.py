@@ -13,4 +13,6 @@ urlpatterns = [
     url(r'^stegano-in-images/$', views.stegano_in_images, name='stegano_in_images'),
     url(r'^upload-image-to-encode/$', views.upload_image_to_encode, name='upload_image_to_encode'),
     url(r'^upload-image-to-decode/$', views.upload_image_to_decode, name='upload_image_to_decode'),
+    url(r'^stegano-in-videos/$', views.stegano_in_videos, name='stegano_in_videos'),
+    url(r'^contacts/$', views.contacts, name='contacts'),
 ]

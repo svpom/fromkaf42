@@ -54,6 +54,7 @@ def stegano_in_images(request):
 def upload_image_to_encode(request):
     if request.method == "POST":
         form_to_encode = UploadImageToEncodeForm(request.POST, request.FILES)
+        form_to_decode = UploadImageToDecodeForm()  # for errors
         if form_to_encode.is_valid():
             f = request.FILES['img']
             if f.size < 20000000:  # <20MB
@@ -109,7 +110,7 @@ def upload_image_to_decode(request):
                 mes_len = request.POST['mes_len']
                 dec_mes = decode_image(mes_len, f)  # dec - decoded
 
-                return HttpResponse(dec_mes)
+                return HttpResponse("Закодированное сообщение: " + dec_mes)
 
         form_to_encode = UploadImageToEncodeForm()
     return render(request, 'prtapp/stegano_in_images.html',
@@ -128,3 +129,11 @@ def decode_image(mes_len, f):
 
     dec_mes = steg_img.decode_mes(img, mes_len)
     return dec_mes
+
+
+def stegano_in_videos(request):
+    return render(request, 'prtapp/stegano_in_videos.html', {})
+
+
+def contacts(request):
+    return render(request, 'prtapp/contacts.html', {})
