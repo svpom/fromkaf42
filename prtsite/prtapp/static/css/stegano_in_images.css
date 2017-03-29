@@ -1,29 +1,14 @@
-section h1{
+section h1, h3{
     margin: 0;
     text-align: center;
+    padding: 12px 0px;
 }
 
-section ol{
-    margin:0;
-    padding:10px;
+section span {
+    color:red;
+}
+
+.form {
+    padding-top: 30px;
     font: 20px PT Sans Narrow, Oswald,sans-serif ;
-}
-
-ol ul {
-    list-style: none;
-}
-
-.less_style {
-        text-decoration: none;
-}
-
-#little_input{
-text-align: center;
-}
-
-#p_before_table {
-    margin: 0px auto;
-}
-#err_label {
-    opacity:0;
 }

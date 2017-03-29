@@ -31,6 +31,7 @@ def encode_mes(mes_user, img, files_name):
     img.save("prtapp/media/images/output/" + files_name, "BMP")
 
 def decode_mes(img, mes_len):
+    mes_len = int(mes_len)
     offset = 0
     dec_mes = ""
     i = 0

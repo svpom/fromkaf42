@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^xhr-height$', views.xhr_height, name='xhr_height'),
     url(r'^summary-about-stegano/$', views.summary_about_stegano, name='summary_about_stegano'),
     url(r'^stegano-in-images/$', views.stegano_in_images, name='stegano_in_images'),
-    url(r'^upload-image/$', views.upload_image, name='upload_image'),
+    url(r'^upload-image-to-encode/$', views.upload_image_to_encode, name='upload_image_to_encode'),
+    url(r'^upload-image-to-decode/$', views.upload_image_to_decode, name='upload_image_to_decode'),
 ]

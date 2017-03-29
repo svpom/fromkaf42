@@ -18,10 +18,20 @@
 <p>Отметим, что в данной реализации рассматриваются в качестве контейнера изображения в формате BMP.</p>
 
 <h1>Применение метода</h1>
+<h3>Кодирование информации</h3>
 
-<form method="POST" action="/upload-image/" enctype="multipart/form-data">
+<form method="POST" action="/upload-image-to-encode/" enctype="multipart/form-data" class="form">
 {% csrf_token %}
-{{ form }}
+{{ form_to_encode }}
 <button type="submit">Закодировать данные!</button>
+</form>
+<span>{{err}}</span>
+
+<h3>Раскодирование информации</h3>
+
+<form method="POST" action="/upload-image-to-decode/" enctype="multipart/form-data" class="form">
+{% csrf_token %}
+{{ form_to_decode }}
+<button type="submit">Раскодировать данные!</button>
 </form>
 {% endblock content %}
